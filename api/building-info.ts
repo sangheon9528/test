@@ -2,7 +2,7 @@ import { VercelRequest, VercelResponse } from '@vercel/node';
 import axios from 'axios';
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
-  const { sigunguCd, bjdongCd, numOfRows = "100", pageNo = "1", _type = "xml" } = req.query;
+  const { sigunguCd = "11680", bjdongCd = "10100", numOfRows = "100", pageNo = "1", _type = "xml" } = req.query;
 
   const serviceKey = "qwFAz64OALusPCo/SMKxR/sVJqhXTSwyOhT3N3QNGmJVZv9Ehj0i7x2vK/AiHiYoKYGk1OjzoM5Ny5a9BpxbLw==";
 
