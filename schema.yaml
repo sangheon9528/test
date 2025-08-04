@@ -1,0 +1,50 @@
+openapi: 3.1.0
+info:
+  title: Building Register Title Info API
+  description: Retrieves summary title information from the Korean Building Register (건축물대장 표제부) via the BldRgstHubService.
+  version: 1.0.0
+servers:
+  - url: https://apis.data.go.kr/1613000/BldRgstHubService
+    description: Public API server for the Korean Building Register
+paths:
+  /getBrTitleInfo:
+    get:
+      operationId: getBrTitleInfo
+      summary: Get building register title information
+      description: Returns summary information (표제부) about buildings from the Korean public real estate API.
+      parameters:
+        - name: serviceKey
+          in: query
+          required: true
+          description: Encoded service key for authentication
+          schema:
+            type: string
+        - name: sigunguCd
+          in: query
+          required: true
+          description: Code for the city/district (시군구코드)
+          schema:
+            type: string
+        - name: bjdongCd
+          in: query
+          required: true
+          description: Legal dong code (법정동 코드)
+          schema:
+            type: string
+        - name: _type
+          in: query
+          required: false
+          description: Response type (xml or json)
+          schema:
+            type: string
+            enum: [xml, json]
+        - name: numOfRows
+          in: query
+          required: false
+          description: Number of rows per page
+          schema:
+            type: integer
+            default: 10
+        - name: pageNo
+          in: query
+          requ
